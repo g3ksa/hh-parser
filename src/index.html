@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Нейронная сеть для обработки текста</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="labels">
+    <label class="input" for="search">Введите текст для обработки:</label>
+    <label class="output" for="processed_text">Обработанный текст:</label><br>
+  </div>
+    <div class="wrapper">
+    
+    
+    <textarea class="input-container"></textarea>
+    
+    <div class="triangle-right"></div>
+
+    <textarea class="output-container"></textarea>
+  </div>
+  <button type="button" onclick="sendRequest()">Найти</button>
+    <script>
+      function sendRequest() {
+        var search_query = document.getElementById("search").value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/api/search", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+          if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+            var response = JSON.parse(this.responseText);
+            document.getElementById("processed_text").value = response.processed_text;
+            highlightActions(response.actions);
+          }
+        };
+        xhr.send("search=" + encodeURIComponent(search_query));
+      }
+
+      function highlightActions(actions) {
+        var textArea = document.getElementById("processed_text");
+        for (var i = 0; i < actions.length; i++) {
+          var action = actions[i];
+          var startIndex = action.start_index;
+          var endIndex = action.end_index;
+          var highlightedText = '<span class="highlighted">' + textArea.value.slice
+          textArea.value = textArea.value.slice(0, startIndex) + highlightedText + textArea.value.slice(endIndex);
+        }
+      }
+    </script>
+  </body>
+</html>

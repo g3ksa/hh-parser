@@ -1,0 +1,54 @@
+$main_color: #d6001c;
+$second-color: #1785e5;
+$background-color: #ffffff;
+body {
+    font-family: Arial, sans-serif;
+    background-color: $background-color;
+  }
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+.labels{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.input{
+    margin-left: 7%;
+    border: 4px solid $main_color;
+    border-radius: 7px;
+    color: aliceblue;
+}
+
+.output{
+    margin-left: 5%;
+    border: 4px solid $main_color;
+    border-radius: 7px;
+    color: aliceblue;
+}
+textarea{
+    resize: none;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 40px;
+    width: 40%;
+    height: 500px; /* высота контейнеров */
+    border: 2px solid $main_color;
+    border-radius: 30px;
+    box-sizing: border-box;
+    color: aliceblue;
+    
+}
+.triangle-right {
+    margin-top: 200px;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 100px solid $main_color;
+}
+  
