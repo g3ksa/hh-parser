@@ -48,9 +48,3 @@ keyword_dict = {
 }
 results = find_keywords(text, keyword_dict)
 
-for category, positions in results.items():
-    print("Категория:", category)
-    for position in positions:
-        print("Позиция:", position[0])
-        print("Значение:", position[1])
-        print()
