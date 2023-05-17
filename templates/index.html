@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Название вашего сайта</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #fff; /* Белый фон */
+            height: 100vh; /* Занимает всю высоту страницы */
+        }
+        
+        .navbar {
+            background-color: #dc3545; /* Красный цвет для меню */
+        }
+        
+        .jumbotron {
+            background-color: #dc3545; /* Красный цвет для вступительного окна */
+            color: #fff; /* Белый цвет текста в вступительном окне */
+            height: 100%; /* Занимает всю высоту родительского контейнера */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .block-container {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%; /* Занимает всю высоту родительского контейнера */
+        }
+        
+        .text-block {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .text-block textarea {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .button-block {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .development-block {
+            background-color: #f8f9fa; /* Синий цвет для блока разработки */
+            padding: 50px;
+            height: 100%; /* Занимает всю высоту родительского контейнера */
+        }
+        
+        .developers-block {
+            background-color: #dc3545; /* Красный цвет для блока разработчиков */
+            color: #fff; /* Белый цвет текста в блоке разработчиков */
+            padding: 50px;
+            height: 100%; /* Занимает всю высоту родительского контейнера */
+        }
+        .text-block {
+            flex: 1;
+            padding: 20px;
+            height: 60vh;
+        }
+        
+        .input-container, .output-container {
+            border: 1px solid #ccc;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .text-block  {
+            width: 100%;
+            height: 100%;
+            border: none;
+            
+        }
+
+        textarea{
+            resize: none;
+        }
+        
+        .output-text {
+            margin: 0;
+        }
+        
+        .button-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 3%;
+            height: 4%;
+            padding-right: 7.7%;
+        }
+        
+        .block-container {
+            display: flex;
+            flex-direction: row;
+            height: 60vh;
+        }
+        
+        .container-fluid {
+            height: 100vh;
+            width: 100%;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Название вашего сайта</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section1">Секция 1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section2">Секция 2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section3">Секция 3</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#section4">Секция 4</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div id="section1" class="jumbotron text-center">
+        <div class="container">
+            <h1>Название вашего сайта</h1>
+        </div>
+    </div>
+    
+    <div id="section2" class="container-fluid">
+        <div class="block-container">
+            <div class="text-block">
+                <h2>Блок для ввода текста</h2>
+                <div class="input-container">
+                    <textarea id="input-textarea" class="form-control"></textarea>
+
+                </div>
+            </div>
+            <div class="text-block">
+                <h2>Блок для вывода текста</h2>
+                <div id="output-container" class="output-container">
+                    <p class="output-text">Результат обработки текста</p>
+                </div>
+            </div>
+        </div>
+        <div class="button-block">
+            <button id="process-button" class="btn btn-primary">Кнопка</button>
+        </div>
+    </div>
+    
+    
+    <div id="section3" class="development-block ">
+        <div class="container">
+            <h2>Описание процесса разработки</h2>
+            <p>Текст и изображения о процессе разработки</p>
+        </div>
+    </div>
+    
+    <div id="section4" class="container-fluid developers-block">
+        <div class="container">
+            <h2>Разработчики проекта</h2>
+            <p>Информация о разработчиках проекта</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            
+          $("a.nav-link").on("click", function(event) {
+            if (this.hash !== "") {
+              event.preventDefault();
+              var hash = this.hash;
+              $("html, body").animate(
+                {
+                  scrollTop: $(hash).offset().top
+                },
+                800,
+                function() {
+                  window.location.hash = hash;
+                }
+              );
+            }
+          });
+        });
+    </script>
+      
+    <script>
+        $(document).ready(function() {
+            $("#process-button").on("click", function() {
+              var inputText = $("#input-textarea").val();
+              $.ajax({
+                type: "POST",
+                url: "http://localhost:5000/process_text",
+                data: { text: inputText },
+                success: function(response) {
+                  $("#output-container").html('<p class="output-text">' + response + '</p>');
+                },
+                error: function() {
+                  $("#output-container").html('<p class="output-text">Ошибка при обработке текста</p>');
+                }
+              });
+            });
+          });
+          
+    </script>
+      
+
+
+</body>
+</html>
