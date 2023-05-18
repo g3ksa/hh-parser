@@ -52,10 +52,15 @@ keyword_dict = {
      "размывать", "острить", "удалять шум", "инвертировать", "кодировать", "декодировать", "нормализовать",
      "находить контуры", "детектировать объекты", "удалить фон", "восстанавливать", "генерировать", "иллюстрировать"): "Midjourney"
 }
-results = find_keywords(text, keyword_dict)
 
 
 
+def paintkeyWord(text, keywords):
+    for network, positions in keywords.items():
+        for start, end in positions:
+            wrapped_text = '<span class="{}">{}</span>'.format(network, text[start:end+1])
+            text = text[:start] + wrapped_text + text[end+1:]
+    return text
 
 
 
@@ -71,16 +76,10 @@ def process_text():
     text1 = request.form.get('text')
     print(text1)
     dictionary = find_keywords(text=text,keyword_dict=keyword_dict)
-    processed_text = paintkeyWord(text=text,dict=dictionary)
+    processed_text = paintkeyWord(text=text,keywords=dictionary)
     return processed_text
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 
 
-def paintkeyWord(text, keywords):
-    for network, positions in keywords.items():
-        start, end = positions
-        wrapped_text = '<span class="{}">{}</span>'.format(network, text[start:end+1])
-        text = text[:start] + wrapped_text + text[end+1:]
-    return text
