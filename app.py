@@ -1,66 +1,21 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, render_template, request
+
 from flask_cors import CORS
 
-import nltk
-from nltk.tokenize import word_tokenize
-import pymorphy2
+
+import spacy
+from spacy import displacy
+
+def spacy_visualizer(text):
+    nlp = spacy.load("D:/TechPractice/hh-parser/data/output/model-best")
+    doc = nlp(text)
+    html = displacy.render(doc, style="ent", minify=True)
+    print()
+    return html
 
 
 
-def preprocess_text(text):
-    words = word_tokenize(text.lower())
-    return words
-
-def lemmatize_words(words):
-    morph = pymorphy2.MorphAnalyzer()
-    lemmatized_words = [morph.parse(word)[0].normal_form for word in words]
-    return lemmatized_words
-
-def find_keywords(text, keyword_dict):
-    positions = {}
-    words = preprocess_text(text)
-    lemmatized_words = lemmatize_words(words)
-    start_idx = 0
-    for i, word in enumerate(lemmatized_words):
-        word_length = len(words[i])
-        end_idx = start_idx + word_length - 1
-        for keyword, category in keyword_dict.items():
-            if word in keyword:
-                if category in positions:
-                    positions[category].append((start_idx, end_idx))
-                else:
-                    positions[category] = [(start_idx, end_idx)]
-                break
-        start_idx += word_length + 1
-    return positions
-
-text = "Приветствую соискатель! Мы команда молодых IT - разработчиков в сфере ГИС платформ (высоконагруженных систем) и мобильных приложений. Наша компания занимается разработкой систем для государственных и корпоративных заказчиков. Автоматизируемые сферы: дорожно-транспортный комплекс задач и логистика. Мы развиваемся и открываем конкурс по набору соискателей. Обязанности:  Создание технической документации: Технического задания, Программа и методика испытаний, Протоколы совещаний, Руководства пользователя различного уровня сложности (для пользователя, для администраторов, для разработчиков). Анализ бизнес-процессов предметной области Понимание нотаций IDEF0, BPMN, UML Сбор, формализация, обсуждение и согласование возможных решений с заказчиками и разработчиками Составление и поддержание в актуальном состоянии технической и эксплуатационной документации на ПО  Требования:  Понимание принципов разработки программного обеспечения. Опыт работы с системами управления проектами. Владение Microsoft Word, Excel, Visio, Draw.io, Confluence; Умение создавать, редактировать, иллюстрировать и адаптировать технический материал под Заказчика и Разработчика; Орфографическая и стилистическая грамотность, грамотная устная речь, аккуратность.  Условия:   График работы 5\\2, гибкое начало рабочего времени;   Крутой офис в собственном коттедже;   Офис оборудован всем необходимым для комфортной работы и отдыха: чай, кофе и пр. в обеденной зоне. Спортивный уголок, места для отдыха;   Помогаем сотрудникам профессионально расти вместе с компанией: покупаем необходимую литературу, покупаем доступ к онлайн-ресурсам (вебинары, конференции, тренинги), приглашаем высококвалифицированных специалистов для обсуждения опыта и проектирования сложных проектов;   Корпоративные мероприятия, обучение английскому языку;  Официальное трудоустройство, своевременная оплата труда. "
-keyword_dict = {
-    ("писать", "редактировать", "формулировать", "сочинять", "комментировать", "корректировать", "отвечать",
-     "интерпретировать", "анализировать", "реферировать", "преобразовывать", "сверять", "копировать", "вставлять",
-     "удалять", "искать", "заменять", "форматировать", "выделять", "подчеркивать", "отмечать", "выравнивать",
-     "выдерживать стиль", "компоновать", "собирать", "разделять", "объединять", "публиковать", "сортировать",
-     "индексировать", "группировать", "экспортировать", "импортировать", "шифровать", "дешифровать", "архивировать",
-     "распаковывать", "подписывать"): "ChatGPT",
-    ("выражать", "преобразовывать", "моделировать", "симулировать", "оптимизировать", "вычислять", "рассчитывать",
-     "подсчитывать", "считать", "определять", "измерять", "пересчитывать", "суммировать", "умножать", "делить",
-     "вычитать", "интегрировать", "дифференцировать", "округлять", "аппроксимировать", "анализировать", "оптимизировать",
-     "моделировать", "сравнивать", "уточнять", "апроксимировать", "проверять"): "PaLM 2",
-    ("рисовать", "изображать", "отображать", "создавать", "редактировать", "формировать", "преобразовывать", "сжимать",
-     "распознавать", "классифицировать", "сегментировать", "аннотировать", "улучшать", "искажать", "фильтровать",
-     "обрезать", "масштабировать", "изменять размер", "вращать", "зеркально отражать", "выравнивать", "выделять",
-     "размывать", "острить", "удалять шум", "инвертировать", "кодировать", "декодировать", "нормализовать",
-     "находить контуры", "детектировать объекты", "удалить фон", "восстанавливать", "генерировать", "иллюстрировать"): "Midjourney"
-}
-
-
-
-def paintkeyWord(text, keywords):
-    for network, positions in keywords.items():
-        for start, end in positions:
-            wrapped_text = '<span class="{}">{}</span>'.format(network, text[start:end+1])
-            text = text[:start] + wrapped_text + text[end+1:]
-    return text
 
 
 
@@ -73,13 +28,18 @@ def index():
 
 @app.route('/process_text', methods=['POST'])
 def process_text():
-    text1 = request.form.get('text')
-    print(text1)
-    dictionary = find_keywords(text=text,keyword_dict=keyword_dict)
-    processed_text = paintkeyWord(text=text,keywords=dictionary)
+    text = request.form.get('text')
+    #print(text1)
+    #dictionary = find_keywords(text=text, keyword_dict=keyword_dict)
+    #processed_text = paintkeyWord(text=text, keywords=dictionary)
+
+    #processed_text = wrap_text_with_span(keyword_dict, text)
+    #processed_text = apply_spans(text, find_keywords(keyword_dict, text))
+    processed_text = spacy_visualizer(text)
     return processed_text
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
 
 
