@@ -48,7 +48,6 @@ async def read_root(request: Request):
 @app.post("/process_vacancy")
 def process_vacancy(description: str = Form(...)):
     processed_description = spacy_visualizer(description)
-    print(get_vacancy_description('78255801'))
     return processed_description
 
 
