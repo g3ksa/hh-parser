@@ -1,11 +1,24 @@
+import json
+import requests
+from bs4 import BeautifulSoup
 from fastapi import FastAPI, Request, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
-
 import spacy
 from spacy import displacy
 
+def get_vacancy_description(str):
+    if str.isdigit():
+        link = f'https://api.hh.ru/vacancies/{str}'
+    else:
+        link = f'{str}'
+    req = requests.get(link)
+    data = req.content.decode()
+    req.close()
+    jsObj = json.loads(data)
+    cleantext = BeautifulSoup(jsObj['description'], "html.parser").text
+    return cleantext
 def spacy_visualizer(text):
     nlp = spacy.load("data/output/model-best")
     doc = nlp(text)
@@ -35,6 +48,7 @@ async def read_root(request: Request):
 @app.post("/process_vacancy")
 def process_vacancy(description: str = Form(...)):
     processed_description = spacy_visualizer(description)
+    print(get_vacancy_description('78255801'))
     return processed_description
 
 
