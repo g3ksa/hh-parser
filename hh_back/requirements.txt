@@ -1,0 +1,7 @@
+spacy
+fastapi
+bs4
+starlette
+python-multipart
+uvicorn
+pydantic
