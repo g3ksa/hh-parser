@@ -1,0 +1,233 @@
+body {
+	background-color: #fff; /* Белый фон */
+	height: 100vh; /* Занимает всю высоту страницы */
+}
+
+.navbar {
+	background-color: rgba(27, 60, 122, 0.8); /* Красный цвет для меню */
+}
+
+.logo{
+	width: 4%;
+	padding-bottom:1%;
+	margin-right: 1%;
+}
+
+.h1-block{
+	display: flex;
+	font-display: row;
+	justify-content: center;
+}
+
+#section2 {
+	padding-top: 5%;
+}
+
+#section3{
+	padding-top: 5%;
+}
+.btn{
+	background-color:  rgba(27, 60, 122, 1);
+	border-color: rgba(27, 60, 122, 1);
+}
+.jumbotron {
+	color: #fff; /* Белый цвет текста в вступительном окне */
+	height: 100%; /* Занимает всю высоту родительского контейнера */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url(../img/software-developer-g4d9d6950c_1920.jpg);
+	background-size: cover;
+	background-position: center top;
+}
+
+.block-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 100%; /* Занимает всю высоту родительского контейнера */
+}
+
+.text-block {
+	flex: 1;
+	padding: 20px;
+	
+}
+
+.text-block textarea {
+	width: 100%;
+	height: 100%;
+}
+
+.button-block {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.development-block {
+	background-color: rgb(20, 45, 89); /* Синий цвет для блока разработки */
+	color: white;
+	padding: 50px;
+	height: 100%; /* Занимает всю высоту родительского контейнера */
+}
+
+.developers-block {
+	background-color:  rgb(59, 88, 137); /* Красный цвет для блока разработчиков */
+	color: #fff; /* Белый цвет текста в блоке разработчиков */
+	padding: 50px;
+	height: 100%; /* Занимает всю высоту родительского контейнера */
+}
+
+#section4{
+	padding-top: 5%;
+}
+.text-block {
+	flex: 1;
+	padding: 20px;
+	height: 60vh;
+}
+
+.input-container, .output-container {
+	border: 1px solid #ccc;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	overflow: auto;
+}
+
+.output-container {
+	overflow: auto; 
+	
+	display: flex;
+	align-items: flex-start;
+	  
+}
+
+
+.text-block  {
+	width: 100%;
+	height: 100%;
+	border: none;
+	
+}
+
+textarea{
+	resize: none;
+}
+
+.output-text {
+	margin: 0;
+}
+
+.button-block {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 3%;
+	height: 4%;
+	padding-right: 7.7%;
+}
+
+.block-container {
+	display: flex;
+	flex-direction: row;
+	height: 60vh;
+}
+
+.container-fluid {
+	height: 100vh;
+	width: 100%;
+}
+
+.ChatGPT{
+	background-color: #53da98;
+	border-radius: 15%;
+}
+
+.PaLM2{
+	background-color: #001c50;
+	border-radius: 15%;
+	
+}
+
+.Midjourney{
+	background-color: #015397;
+	border-radius: 15%;
+	color: white;
+}
+
+.RNN{
+	background-color: #e3b6a1;
+	border-radius: 15%;
+}
+
+.LSTM{
+	background-color: #facc44;
+	border-radius: 15%;
+}
+
+.GAN{
+	background-color: #ec61e7;
+	border-radius: 15%;
+}
+
+.RL{
+	background-color: #27c91c;
+	border-radius: 15%;
+}
+
+.Autoencoders{
+	background-color: #da5353;
+	border-radius: 15%;
+}
+
+.GNN{
+	background-color: #989e2d;
+	border-radius: 15%;
+}
+
+
+/* Общие стили полосы прокрутки */
+::-webkit-scrollbar {
+	width: auto; /* Ширина полосы прокрутки */
+ }
+ 
+ /* Стиль полосы прокрутки */
+ ::-webkit-scrollbar-thumb {
+	background-color: rgb(39, 76, 139);
+	border-radius: 7px; 
+ }
+ 
+ /* Стиль трека полосы прокрутки */
+ ::-webkit-scrollbar-track {
+	background-color: rgb(49, 93, 170); /* Цвет трека полосы прокрутки */
+ }
+ 
+ /* Изменение цвета полосы прокрутки при наведении */
+ ::-webkit-scrollbar-thumb:hover {
+	background-color: rgb(28, 52, 92); /* Цвет полосы прокрутки при наведении */
+ }
+ 
+ /* Изменение цвета трека полосы прокрутки при наведении */
+ ::-webkit-scrollbar-track:hover {
+	background-color: rgb(46, 88, 156); /* Цвет трека полосы прокрутки при наведении */
+ }
+ 
+ @keyframes typing {
+	from {
+	  width: 0;
+	}
+	to {
+	  width: 100%;
+	}
+ }
+ 
+ h1 {
+	overflow: hidden;
+	white-space: nowrap;
+	animation: typing 4s steps(40, end);
+ }
+ 

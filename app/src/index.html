@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AIHunter</title>
+		<link rel="stylesheet" type="text/css" href="./style/style.css" />
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					<img src="./img/logo.png" class="logo" alt="" />AIHunter
+				</a>
+				<button
+					class="navbar-toggler"
+					type="button"
+					data-toggle="collapse"
+					data-target="#navbarNav"
+					aria-controls="navbarNav"
+					aria-expanded="false"
+					aria-label="Toggle navigation"
+				>
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="#section1">Начало</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#section2">Hunt</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#section3">Разработка</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#section4">Участники</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div id="section1" class="jumbotron text-center">
+			<div class="container h1-block">
+				<img src="./img/logo.png" class="logo" alt="" />
+				<h1>AIHunter</h1>
+			</div>
+		</div>
+
+		<div id="section2" class="container-fluid">
+			<div class="block-container">
+				<div class="text-block">
+					<h2>Блок для ввода текста</h2>
+					<div class="input-container">
+						<textarea
+							id="input-textarea"
+							class="form-control"
+							name="description"
+						></textarea>
+					</div>
+				</div>
+				<div class="text-block">
+					<h2>Блок для вывода текста</h2>
+					<div id="output-container" class="output-container">
+						<p class="output-text">
+							Результат обработки
+							<span class="Midjourney"> текста </span>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="button-block">
+				<button id="process-button" class="btn btn-primary">Найти</button>
+			</div>
+		</div>
+
+		<div id="section3" class="development-block">
+			<div class="container">
+				<h2>Описание процесса разработки</h2>
+				<p>Текст и изображения о процессе разработки</p>
+			</div>
+		</div>
+
+		<div id="section4" class="container-fluid developers-block">
+			<div class="container">
+				<h2>Разработчики проекта</h2>
+				<p>Информация о разработчиках проекта</p>
+			</div>
+		</div>
+	</body>
+	<script type="module" src="./js/script.js"></script>
+</html>

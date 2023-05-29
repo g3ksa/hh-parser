@@ -11,6 +11,6 @@ COPY data/output/model-best /app/data/output/model-best
 
 ENV PYTHONPATH=/app
 
-EXPOSE 3000
+EXPOSE 5000
 
 CMD ["python", "app.py"]
