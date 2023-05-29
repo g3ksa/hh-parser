@@ -30,7 +30,7 @@ for i in train_data:
 
 nlp = spacy.load("ru_core_news_lg")
 
-db = DocBin()
+db = DocBin().from_disk('./train.spacy')
 
 for text, annot in tqdm(train_data):
     doc = nlp.make_doc(text)
