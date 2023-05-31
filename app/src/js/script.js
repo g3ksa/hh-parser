@@ -26,7 +26,7 @@ $(document).ready(function () {
 			type: 'POST',
 			url:
 				process.env.NODE_ENV === 'production'
-					? 'http://aihunter.ru/agw/process_vacancy'
+					? 'https://aihunter.ru/agw/process_vacancy'
 					: 'http://localhost:5000/process_vacancy',
 			data: JSON.stringify({ description: inputText }),
 			contentType: 'application/json',
