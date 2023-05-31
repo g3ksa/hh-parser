@@ -24,7 +24,10 @@ $(document).ready(function () {
 		var inputText = $('#input-textarea').val()
 		$.ajax({
 			type: 'POST',
-			url: 'http://localhost:5000/process_vacancy',
+			url:
+				process.env.NODE_ENV === 'production'
+					? 'http://aihunter.ru/agw/process_vacancy'
+					: 'http://localhost:5000/process_vacancy',
 			data: JSON.stringify({ description: inputText }),
 			contentType: 'application/json',
 			dataType: 'json',
