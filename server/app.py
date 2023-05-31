@@ -19,9 +19,11 @@ def get_vacancy_description(str):
     return BeautifulSoup(jsObj['description'], "html.parser").text
 
 def spacy_visualizer(text):
+    colors = {"TEXT": "pink", "MATH": "darkblue", "IMG": "green", "VOICE": "orange", "REC": "cyan", "DEV": "yellow"}
+    options = {"ents": ["TEXT", "MATH", "IMG", "VOICE", "REC", "DEV"], "colors": colors}
     nlp = spacy.load("data/output/model-best")
     doc = nlp(text)
-    return displacy.render(doc, style="ent", minify=True)
+    return displacy.render(doc, style="ent", options=options, minify=True)
 
 app = FastAPI()
 
