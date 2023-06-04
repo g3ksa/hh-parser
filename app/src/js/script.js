@@ -44,3 +44,31 @@ $(document).ready(function () {
 		})
 	})
 })
+
+
+$(document).ready(function () {
+	$('#process-url-button').on('click', function () {
+		alert("good")
+		var inputText = $('#input-url-textarea').val()
+		$.ajax({
+			type: 'POST',
+			url:
+				process.env.NODE_ENV === 'production'
+					? 'https://aihunter.ru/agw/process_vacancy_by_url'
+					: 'http://localhost:5000/process_vacancy_by_url',
+			data: JSON.stringify({ description: inputText }),
+			contentType: 'application/json',
+			dataType: 'json',
+			success: function (response) {
+				$('#output-container').html(
+					'<p class="output-text">' + response + '</p>'
+				)
+			},
+			error: function () {
+				$('#output-container').html(
+					'<p class="output-text">Ошибка при обработке текста</p>'
+				)
+			},
+		})
+	})
+})

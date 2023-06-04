@@ -89,23 +89,44 @@ body {
 	height: 60vh;
 }
 
-.input-container, .output-container {
+.input-container{
+	border: 1px solid #ccc;
+	height: 72.5%;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	overflow: auto;
+
+}
+
+.input-url-block{
+	 display: flex;
+	 flex-direction: row;
+}
+
+.button-url-block{
+	margin-top: 2px;
+	margin-left: 4%;
+	
+}
+.output-container {
+	overflow: auto; 
 	border: 1px solid #ccc;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	padding: 10px;
 	overflow: auto;
-}
-
-.output-container {
-	overflow: auto; 
-	
 	display: flex;
 	align-items: flex-start;
 	  
 }
-
+.input-url{
+	margin-bottom: 4%;
+	width: 85%;
+	height: 40px;
+	
+}
 
 .text-block  {
 	width: 100%;

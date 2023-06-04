@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 	<head>
 		<title>AIHunter</title>
@@ -35,7 +35,17 @@
 		<div id="section2" class="container-fluid">
 			<div class="block-container">
 				<div class="text-block">
-					<h2>Блок для ввода текста</h2>
+					<h2>Введите ссылку на вакансию</h2>
+					<div class="input-url-block">
+						<div class="input-url">
+							
+							<textarea id="input-url-textarea" class="form-control" name="description"></textarea>
+						</div>
+						<div class="button-url-block">
+							<button id="process-url-button" class="btn btn-primary">Найти</button>
+						</div>
+					</div>
+					<h2>Введите описание вакансии</h2>
 					<div class="input-container">
 						<textarea
 							id="input-textarea"
@@ -43,9 +53,11 @@
 							name="description"
 						></textarea>
 					</div>
+					
+					
 				</div>
 				<div class="text-block">
-					<h2>Блок для вывода текста</h2>
+					<h2>Результат</h2>
 					<div id="output-container" class="output-container">
 						<p class="output-text">
 							Результат обработки
@@ -53,18 +65,17 @@
 						</p>
 					</div>
 				</div>
+				
 			</div>
+			
 			<div class="button-block">
 				<button id="process-button" class="btn btn-primary">Найти</button>
 			</div>
 		</div>
 
 		
-			<div class="container">
-				<h2>Разработчики проекта</h2>
-				<p>Информация о разработчиках проекта</p>
-			</div>
-		</div>
+			
+		
 	</body>
 	<script type="module" src="./js/script.js"></script>
 </html>
