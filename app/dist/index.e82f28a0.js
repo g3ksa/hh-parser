@@ -596,7 +596,7 @@ var _bootstrapMinCss = require("../../node_modules/bootstrap/dist/css/bootstrap.
         var inputText = (0, _jqueryDefault.default)("#input-textarea").val();
         (0, _jqueryDefault.default).ajax({
             type: "POST",
-            url: "http://localhost:3000/process_vacancy",
+            url: "http://localhost:5000/process_vacancy",
             data: JSON.stringify({
                 description: inputText
             }),
@@ -612,7 +612,7 @@ var _bootstrapMinCss = require("../../node_modules/bootstrap/dist/css/bootstrap.
     });
 });
 
-},{"jquery":"hgMhh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../node_modules/bootstrap/dist/css/bootstrap.min.css":"i5LP7"}],"hgMhh":[function(require,module,exports) {
+},{"jquery":"hgMhh","../../node_modules/bootstrap/dist/css/bootstrap.min.css":"i5LP7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hgMhh":[function(require,module,exports) {
 /*!
  * jQuery JavaScript Library v3.7.0
  * https://jquery.com/
@@ -7309,7 +7309,7 @@ var _bootstrapMinCss = require("../../node_modules/bootstrap/dist/css/bootstrap.
     return jQuery;
 });
 
-},{}],"gkKU3":[function(require,module,exports) {
+},{}],"i5LP7":[function() {},{}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -7339,6 +7339,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"i5LP7":[function() {},{}]},["4tgfT","dV6cC"], "dV6cC", "parcelRequire99ad")
+},{}]},["4tgfT","dV6cC"], "dV6cC", "parcelRequire99ad")
 
 //# sourceMappingURL=index.e82f28a0.js.map

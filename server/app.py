@@ -3,8 +3,6 @@ from pydantic import BaseModel
 import requests
 from bs4 import BeautifulSoup
 from fastapi import FastAPI, Request, Form
-from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 import uvicorn
 import spacy
@@ -12,8 +10,7 @@ from spacy import displacy
 
 def get_vacancy_description(str):
     pattern = r"hh.ru/vacancy/(\d+)"
-    match = re.search(pattern, str)
-    if match:
+    if match := re.search(pattern, str):
         vacancy_id = match.group(1)
         link = f'https://api.hh.ru/vacancies/{vacancy_id}'
     elif str.isdigit():
@@ -37,7 +34,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://159.223.230.93"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
