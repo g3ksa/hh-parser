@@ -41,14 +41,11 @@ class Vacancy(BaseModel):
 
 @app.post("/process_vacancy")
 def process_vacancy(vacancy: Vacancy):
-    print(vacancy.description)
     return spacy_visualizer(vacancy.description)
+
+@app.post("/process_vacancy_by_url")
+def process_vacancy_by_url(vacancy: Vacancy):
+    return spacy_visualizer(get_vacancy_description(vacancy.description))
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=5000)
-
-
-
-
-
-
