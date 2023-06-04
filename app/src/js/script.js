@@ -48,7 +48,6 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 	$('#process-url-button').on('click', function () {
-		alert("good")
 		var inputText = $('#input-url-textarea').val()
 		$.ajax({
 			type: 'POST',

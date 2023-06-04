@@ -613,7 +613,6 @@ var _bootstrapMinCss = require("../../node_modules/bootstrap/dist/css/bootstrap.
 });
 (0, _jqueryDefault.default)(document).ready(function() {
     (0, _jqueryDefault.default)("#process-url-button").on("click", function() {
-        alert("good");
         var inputText = (0, _jqueryDefault.default)("#input-url-textarea").val();
         (0, _jqueryDefault.default).ajax({
             type: "POST",
