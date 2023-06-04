@@ -1,4 +1,5 @@
 import json
+import re
 from pydantic import BaseModel
 import requests
 from bs4 import BeautifulSoup
@@ -11,7 +12,7 @@ from spacy import displacy
 def get_vacancy_description(str):
     pattern = r"hh.ru/vacancy/(\d+)"
     if match := re.search(pattern, str):
-        vacancy_id = match.group(1)
+        vacancy_id = match[1]
         link = f'https://api.hh.ru/vacancies/{vacancy_id}'
     elif str.isdigit():
         link = f'https://api.hh.ru/vacancies/{str}'
