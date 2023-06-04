@@ -11,7 +11,15 @@ import spacy
 from spacy import displacy
 
 def get_vacancy_description(str):
-    link = f'https://api.hh.ru/vacancies/{str}' if str.isdigit() else f'{str}'
+    pattern = r"hh.ru/vacancy/(\d+)"
+    match = re.search(pattern, str)
+    if match:
+        vacancy_id = match.group(1)
+        link = f'https://api.hh.ru/vacancies/{vacancy_id}'
+    elif str.isdigit():
+        link = f'https://api.hh.ru/vacancies/{str}'
+    else:
+        return None
     req = requests.get(link)
     data = req.content.decode()
     req.close()
@@ -19,7 +27,7 @@ def get_vacancy_description(str):
     return BeautifulSoup(jsObj['description'], "html.parser").text
 
 def spacy_visualizer(text):
-    colors = {"TEXT": "pink", "MATH": "darkblue", "IMG": "green", "VOICE": "orange", "REC": "cyan", "DEV": "yellow"}
+    colors = {"TEXT": "#FFB6C1", "MATH": "#AEE4FF", "IMG": "#CEE9BE", "VOICE": "#DDA0DD", "REC": "#FEE5E1", "DEV": "#F0E68C"}
     options = {"ents": ["TEXT", "MATH", "IMG", "VOICE", "REC", "DEV"], "colors": colors}
     nlp = spacy.load("data/output/model-best")
     doc = nlp(text)
