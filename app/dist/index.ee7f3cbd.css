@@ -222,6 +222,11 @@ textarea {
   background-color: #2e589c;
 }
 
+.main-logo {
+  margin-right: 14%;
+  position: absolute;
+}
+
 @keyframes typing {
   from {
     width: 0;
@@ -234,7 +239,7 @@ textarea {
 
 h1 {
   white-space: nowrap;
-  animation: 4s steps(40, end) typing;
+  animation: 4s steps(60, end) typing;
   overflow: hidden;
 }
 

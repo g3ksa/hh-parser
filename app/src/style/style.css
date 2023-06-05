@@ -237,6 +237,10 @@ textarea{
 	background-color: rgb(46, 88, 156); /* Цвет трека полосы прокрутки при наведении */
  }
  
+ .main-logo{
+	position:absolute;
+	margin-right: 14%;
+ }
  @keyframes typing {
 	from {
 	  width: 0;
@@ -249,7 +253,7 @@ textarea{
  h1 {
 	overflow: hidden;
 	white-space: nowrap;
-	animation: typing 4s steps(40, end);
+	animation: typing 4s steps(60, end);
  }
 
 .form-control{
