@@ -6,7 +6,7 @@ services:
          dockerfile: Dockerfile
       image: hh-server
       ports:
-         - 5000:5000
+         - 127.0.0.1:5000:5000
       deploy:
          mode: replicated
          replicas: 1
@@ -19,7 +19,7 @@ services:
          dockerfile: Dockerfile
       image: hh-client
       ports:
-         - 3000:3000
+         - 127.0.0.1:3000:3000
       deploy:
          mode: replicated
          replicas: 1
