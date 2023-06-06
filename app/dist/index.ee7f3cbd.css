@@ -90,6 +90,7 @@ body {
 .input-container {
   height: 72.5%;
   border: 1px solid #ccc;
+  border-radius: 2%;
   align-items: center;
   padding: 10px;
   display: flex;
@@ -103,12 +104,13 @@ body {
 
 .button-url-block {
   margin-top: 2px;
-  margin-left: 4%;
+  margin-left: 6%;
 }
 
 .output-container {
   height: 100%;
   border: 1px solid #ccc;
+  border-radius: 2%;
   align-items: flex-start;
   padding: 10px;
   display: flex;
@@ -155,52 +157,6 @@ textarea {
   width: 100%;
 }
 
-.ChatGPT {
-  background-color: #53da98;
-  border-radius: 15%;
-}
-
-.PaLM2 {
-  background-color: #001c50;
-  border-radius: 15%;
-}
-
-.Midjourney {
-  color: #fff;
-  background-color: #015397;
-  border-radius: 15%;
-}
-
-.RNN {
-  background-color: #e3b6a1;
-  border-radius: 15%;
-}
-
-.LSTM {
-  background-color: #facc44;
-  border-radius: 15%;
-}
-
-.GAN {
-  background-color: #ec61e7;
-  border-radius: 15%;
-}
-
-.RL {
-  background-color: #27c91c;
-  border-radius: 15%;
-}
-
-.Autoencoders {
-  background-color: #da5353;
-  border-radius: 15%;
-}
-
-.GNN {
-  background-color: #989e2d;
-  border-radius: 15%;
-}
-
 ::-webkit-scrollbar {
   width: auto;
 }
@@ -223,7 +179,7 @@ textarea {
 }
 
 .main-logo {
-  margin-right: 14%;
+  margin-right: 15%;
   position: absolute;
 }
 
@@ -245,6 +201,10 @@ h1 {
 
 .form-control {
   resize: none;
+}
+
+#input-textarea {
+  border: none;
 }
 
 :root {
