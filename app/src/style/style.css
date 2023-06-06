@@ -3,6 +3,7 @@ body {
 	height: 100vh; /* Занимает всю высоту страницы */
 }
 
+
 .navbar {
 	background-color: rgba(27, 60, 122, 0.8); /* Красный цвет для меню */
 }
@@ -66,46 +67,53 @@ body {
 	justify-content: center;
 }
 
-.development-block {
-	background-color: rgb(20, 45, 89); /* Синий цвет для блока разработки */
-	color: white;
-	padding: 50px;
-	height: 100%; /* Занимает всю высоту родительского контейнера */
-}
-
-.developers-block {
-	background-color:  rgb(59, 88, 137); /* Красный цвет для блока разработчиков */
-	color: #fff; /* Белый цвет текста в блоке разработчиков */
-	padding: 50px;
-	height: 100%; /* Занимает всю высоту родительского контейнера */
-}
-
-#section4{
-	padding-top: 5%;
-}
 .text-block {
 	flex: 1;
 	padding: 20px;
 	height: 60vh;
 }
 
-.input-container, .output-container {
+.input-container{
 	border: 1px solid #ccc;
+	border-radius: 2%;
+	height: 72.5%;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	overflow: auto;
+
+}
+
+.input-url-block{
+	 display: flex;
+	 flex-direction: row;
+	 width: 100%;
+}
+
+.button-url-block{
+	margin-top: 2px;
+	margin-left: 6%;
+	
+}
+.output-container {
+	overflow: auto; 
+	border: 1px solid #ccc;
+	border-radius: 2%;
 	height: 100%;
 	display: flex;
 	align-items: center;
 	padding: 10px;
 	overflow: auto;
-}
-
-.output-container {
-	overflow: auto; 
-	
 	display: flex;
 	align-items: flex-start;
 	  
 }
-
+.input-url{
+	margin-bottom: 4%;
+	width: 85%;
+	height: 40px;
+	
+}
 
 .text-block  {
 	width: 100%;
@@ -128,7 +136,7 @@ textarea{
 	justify-content: center;
 	margin-top: 3%;
 	height: 4%;
-	padding-right: 7.7%;
+	padding-right: 8.5%;
 }
 
 .block-container {
@@ -142,52 +150,7 @@ textarea{
 	width: 100%;
 }
 
-.ChatGPT{
-	background-color: #53da98;
-	border-radius: 15%;
-}
 
-.PaLM2{
-	background-color: #001c50;
-	border-radius: 15%;
-	
-}
-
-.Midjourney{
-	background-color: #015397;
-	border-radius: 15%;
-	color: white;
-}
-
-.RNN{
-	background-color: #e3b6a1;
-	border-radius: 15%;
-}
-
-.LSTM{
-	background-color: #facc44;
-	border-radius: 15%;
-}
-
-.GAN{
-	background-color: #ec61e7;
-	border-radius: 15%;
-}
-
-.RL{
-	background-color: #27c91c;
-	border-radius: 15%;
-}
-
-.Autoencoders{
-	background-color: #da5353;
-	border-radius: 15%;
-}
-
-.GNN{
-	background-color: #989e2d;
-	border-radius: 15%;
-}
 
 
 /* Общие стили полосы прокрутки */
@@ -216,6 +179,10 @@ textarea{
 	background-color: rgb(46, 88, 156); /* Цвет трека полосы прокрутки при наведении */
  }
  
+ .main-logo{
+	position:absolute;
+	margin-right: 12%;
+ }
  @keyframes typing {
 	from {
 	  width: 0;
@@ -228,10 +195,43 @@ textarea{
  h1 {
 	overflow: hidden;
 	white-space: nowrap;
-	animation: typing 4s steps(40, end);
+	animation: typing 4s steps(60, end);
  }
 
 .form-control{
 	resize: none;
 }
  
+#input-textarea{
+	border: none;
+}
+
+
+textarea:active, textarea:hover, textarea:focus {
+    outline: 0 !important;
+    outline-offset: 0 !important;
+}
+
+@media only screen and (max-width: 900px) {
+
+	.container-fluid {
+		flex-direction: column;
+	}
+
+	.text-block {
+		margin-bottom: 20px;
+	}
+
+
+	.input-url-block,
+	.input-container {
+		width: 100%;
+	}
+
+	.button-url-block {
+		margin-top: 10px;
+	}
+	.button-block {
+		margin-top: 10px;
+	}
+}

@@ -21,13 +21,37 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 	$('#process-button').on('click', function () {
-		var inputText = $('#input-textarea').val()
+		findWords()
+	})
+}) 
+
+
+$(document).ready(function () {
+	$('#process-url-button').on('click', function () {
+		findWords()
+	})
+})
+
+
+$(document).ready(function () {
+	document.querySelector('textarea').addEventListener('keydown', (e) => {
+		if (e.key === 'Enter' && !event.shiftKey) {
+		e.preventDefault()
+		findWords()
+		return
+		}
+	})
+})
+
+
+function findWords(){
+	var inputText = $('#input-url-textarea').val()
 		$.ajax({
 			type: 'POST',
 			url:
 				process.env.NODE_ENV === 'production'
-					? 'https://aihunter.ru/agw/process_vacancy'
-					: 'http://localhost:5000/process_vacancy',
+					? 'https://aihunter.ru/agw/process_vacancy_by_url'
+					: 'http://localhost:5000/process_vacancy_by_url',
 			data: JSON.stringify({ description: inputText }),
 			contentType: 'application/json',
 			dataType: 'json',
@@ -42,5 +66,4 @@ $(document).ready(function () {
 				)
 			},
 		})
-	})
-})
+}

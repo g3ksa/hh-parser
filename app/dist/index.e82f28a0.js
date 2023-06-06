@@ -579,9 +579,9 @@ var _jquery = require("jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
 var _bootstrapMinCss = require("../../node_modules/bootstrap/dist/css/bootstrap.min.css");
 (0, _jqueryDefault.default)(document).ready(function() {
-    (0, _jqueryDefault.default)("a.nav-link").on("click", function(event) {
+    (0, _jqueryDefault.default)("a.nav-link").on("click", function(event1) {
         if (this.hash !== "") {
-            event.preventDefault();
+            event1.preventDefault();
             var hash = this.hash;
             (0, _jqueryDefault.default)("html, body").animate({
                 scrollTop: (0, _jqueryDefault.default)(hash).offset().top
@@ -593,24 +593,41 @@ var _bootstrapMinCss = require("../../node_modules/bootstrap/dist/css/bootstrap.
 });
 (0, _jqueryDefault.default)(document).ready(function() {
     (0, _jqueryDefault.default)("#process-button").on("click", function() {
-        var inputText = (0, _jqueryDefault.default)("#input-textarea").val();
-        (0, _jqueryDefault.default).ajax({
-            type: "POST",
-            url: "http://localhost:5000/process_vacancy",
-            data: JSON.stringify({
-                description: inputText
-            }),
-            contentType: "application/json",
-            dataType: "json",
-            success: function(response) {
-                (0, _jqueryDefault.default)("#output-container").html('<p class="output-text">' + response + "</p>");
-            },
-            error: function() {
-                (0, _jqueryDefault.default)("#output-container").html('<p class="output-text">Ошибка при обработке текста</p>');
-            }
-        });
+        findWords();
     });
 });
+(0, _jqueryDefault.default)(document).ready(function() {
+    (0, _jqueryDefault.default)("#process-url-button").on("click", function() {
+        findWords();
+    });
+});
+(0, _jqueryDefault.default)(document).ready(function() {
+    document.querySelector("textarea").addEventListener("keydown", (e)=>{
+        if (e.key === "Enter" && !event.shiftKey) {
+            e.preventDefault();
+            findWords();
+            return;
+        }
+    });
+});
+function findWords() {
+    var inputText = (0, _jqueryDefault.default)("#input-url-textarea").val();
+    (0, _jqueryDefault.default).ajax({
+        type: "POST",
+        url: "http://localhost:5000/process_vacancy_by_url",
+        data: JSON.stringify({
+            description: inputText
+        }),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(response) {
+            (0, _jqueryDefault.default)("#output-container").html('<p class="output-text">' + response + "</p>");
+        },
+        error: function() {
+            (0, _jqueryDefault.default)("#output-container").html('<p class="output-text">Ошибка при обработке текста</p>');
+        }
+    });
+}
 
 },{"jquery":"hgMhh","../../node_modules/bootstrap/dist/css/bootstrap.min.css":"i5LP7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hgMhh":[function(require,module,exports) {
 /*!
