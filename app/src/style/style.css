@@ -3,6 +3,7 @@ body {
 	height: 100vh; /* Занимает всю высоту страницы */
 }
 
+
 .navbar {
 	background-color: rgba(27, 60, 122, 0.8); /* Красный цвет для меню */
 }
@@ -66,23 +67,7 @@ body {
 	justify-content: center;
 }
 
-.development-block {
-	background-color: rgb(20, 45, 89); /* Синий цвет для блока разработки */
-	color: white;
-	padding: 50px;
-	height: 100%; /* Занимает всю высоту родительского контейнера */
-}
 
-.developers-block {
-	background-color:  rgb(59, 88, 137); /* Красный цвет для блока разработчиков */
-	color: #fff; /* Белый цвет текста в блоке разработчиков */
-	padding: 50px;
-	height: 100%; /* Занимает всю высоту родительского контейнера */
-}
-
-#section4{
-	padding-top: 5%;
-}
 .text-block {
 	flex: 1;
 	padding: 20px;
@@ -103,6 +88,7 @@ body {
 .input-url-block{
 	 display: flex;
 	 flex-direction: row;
+	 width: 100%;
 }
 
 .button-url-block{
@@ -151,7 +137,7 @@ textarea{
 	justify-content: center;
 	margin-top: 3%;
 	height: 4%;
-	padding-right: 7.7%;
+	padding-right: 8.5%;
 }
 
 .block-container {
@@ -219,4 +205,34 @@ textarea{
  
 #input-textarea{
 	border: none;
+}
+
+
+textarea:active, textarea:hover, textarea:focus {
+    outline: 0 !important;
+    outline-offset: 0 !important;
+}
+
+@media only screen and (max-width: 768px) {
+
+	.container-fluid {
+		flex-direction: column;
+	}
+
+	.text-block {
+		margin-bottom: 20px;
+	}
+
+
+	.input-url-block,
+	.input-container {
+		width: 100%;
+	}
+
+	.button-url-block {
+		margin-top: 10px;
+	}
+	.button-block {
+		margin-top: 10px;
+	}
 }

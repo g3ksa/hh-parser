@@ -63,24 +63,6 @@ body {
   display: flex;
 }
 
-.development-block {
-  color: #fff;
-  height: 100%;
-  background-color: #142d59;
-  padding: 50px;
-}
-
-.developers-block {
-  color: #fff;
-  height: 100%;
-  background-color: #3b5889;
-  padding: 50px;
-}
-
-#section4 {
-  padding-top: 5%;
-}
-
 .text-block {
   height: 60vh;
   flex: 1;
@@ -98,6 +80,7 @@ body {
 }
 
 .input-url-block {
+  width: 100%;
   flex-direction: row;
   display: flex;
 }
@@ -142,7 +125,7 @@ textarea {
   justify-content: center;
   align-items: center;
   margin-top: 3%;
-  padding-right: 7.7%;
+  padding-right: 8.5%;
   display: flex;
 }
 
@@ -205,6 +188,29 @@ h1 {
 
 #input-textarea {
   border: none;
+}
+
+textarea:active, textarea:hover, textarea:focus {
+  outline-offset: 0 !important;
+  outline: 0 !important;
+}
+
+@media only screen and (width <= 768px) {
+  .container-fluid {
+    flex-direction: column;
+  }
+
+  .text-block {
+    margin-bottom: 20px;
+  }
+
+  .input-url-block, .input-container {
+    width: 100%;
+  }
+
+  .button-url-block, .button-block {
+    margin-top: 10px;
+  }
 }
 
 :root {

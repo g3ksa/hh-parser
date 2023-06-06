@@ -45,7 +45,6 @@ $(document).ready(function () {
 
 
 function findWords(){
-	alert()
 	var inputText = $('#input-url-textarea').val()
 		$.ajax({
 			type: 'POST',

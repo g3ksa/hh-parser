@@ -611,7 +611,6 @@ var _bootstrapMinCss = require("../../node_modules/bootstrap/dist/css/bootstrap.
     });
 });
 function findWords() {
-    alert();
     var inputText = (0, _jqueryDefault.default)("#input-url-textarea").val();
     (0, _jqueryDefault.default).ajax({
         type: "POST",
