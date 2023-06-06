@@ -67,7 +67,6 @@ body {
 	justify-content: center;
 }
 
-
 .text-block {
 	flex: 1;
 	padding: 20px;
@@ -182,7 +181,7 @@ textarea{
  
  .main-logo{
 	position:absolute;
-	margin-right: 15%;
+	margin-right: 12%;
  }
  @keyframes typing {
 	from {
@@ -213,7 +212,7 @@ textarea:active, textarea:hover, textarea:focus {
     outline-offset: 0 !important;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 900px) {
 
 	.container-fluid {
 		flex-direction: column;
