@@ -35,6 +35,11 @@ body {
 	padding-top: 5%;
 }
 
+#section3 {
+	margin-left: 20px;
+	height: 80%;
+	width: 90%;
+}
 
 .btn{
 	background-color:  rgba(27, 60, 122, 1);
