@@ -598,7 +598,7 @@ var _bootstrapMinCss = require("../../node_modules/bootstrap/dist/css/bootstrap.
 });
 (0, _jqueryDefault.default)(document).ready(function() {
     (0, _jqueryDefault.default)("#process-url-button").on("click", function() {
-        findWords();
+        findWords_by_url();
     });
 });
 (0, _jqueryDefault.default)(document).ready(function() {
@@ -611,6 +611,24 @@ var _bootstrapMinCss = require("../../node_modules/bootstrap/dist/css/bootstrap.
     });
 });
 function findWords() {
+    var inputText = (0, _jqueryDefault.default)("#input-textarea").val();
+    (0, _jqueryDefault.default).ajax({
+        type: "POST",
+        url: "http://localhost:5000/process_vacancy",
+        data: JSON.stringify({
+            description: inputText
+        }),
+        contentType: "application/json",
+        dataType: "json",
+        success: function(response) {
+            (0, _jqueryDefault.default)("#output-container").html('<p class="output-text">' + response + "</p>");
+        },
+        error: function() {
+            (0, _jqueryDefault.default)("#output-container").html('<p class="output-text">Ошибка при обработке текста</p>');
+        }
+    });
+}
+function findWords_by_url() {
     var inputText = (0, _jqueryDefault.default)("#input-url-textarea").val();
     (0, _jqueryDefault.default).ajax({
         type: "POST",

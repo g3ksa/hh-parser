@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
 	$('#process-url-button').on('click', function () {
-		findWords()
+		findWords_by_url()
 	})
 })
 
@@ -45,6 +45,30 @@ $(document).ready(function () {
 
 
 function findWords(){
+	var inputText = $('#input-textarea').val()
+		$.ajax({
+			type: 'POST',
+			url:
+				process.env.NODE_ENV === 'production'
+					? 'https://aihunter.ru/agw/process_vacancy'
+					: 'http://localhost:5000/process_vacancy',
+			data: JSON.stringify({ description: inputText }),
+			contentType: 'application/json',
+			dataType: 'json',
+			success: function (response) {
+				$('#output-container').html(
+					'<p class="output-text">' + response + '</p>'
+				)
+			},
+			error: function () {
+				$('#output-container').html(
+					'<p class="output-text">Ошибка при обработке текста</p>'
+				)
+			},
+		})
+}
+
+function findWords_by_url(){
 	var inputText = $('#input-url-textarea').val()
 		$.ajax({
 			type: 'POST',

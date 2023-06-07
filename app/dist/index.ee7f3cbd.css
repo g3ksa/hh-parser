@@ -13,13 +13,24 @@ body {
   padding-bottom: 1%;
 }
 
+.arrow-down {
+  width: 25%;
+  margin-top: 220%;
+}
+
 .h1-block {
   font-display: row;
   justify-content: center;
   display: flex;
+  position: absolute;
 }
 
-#section2, #section3 {
+#section1 {
+  flex-direction: column;
+  display: flex;
+}
+
+#section2 {
   padding-top: 5%;
 }
 
@@ -87,7 +98,7 @@ body {
 
 .button-url-block {
   margin-top: 2px;
-  margin-left: 6%;
+  margin-left: 6.7%;
 }
 
 .output-container {
@@ -125,7 +136,7 @@ textarea {
   justify-content: center;
   align-items: center;
   margin-top: 3%;
-  padding-right: 8.5%;
+  padding-right: 6.2%;
   display: flex;
 }
 
@@ -162,7 +173,7 @@ textarea {
 }
 
 .main-logo {
-  margin-right: 12%;
+  margin-right: 13.5%;
   position: absolute;
 }
 
