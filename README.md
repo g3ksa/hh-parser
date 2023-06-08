@@ -8,7 +8,7 @@
 docker compose -f docker-compose.yml up -d
 ```
 
-* \Без помощи docker:
+* Без помощи docker:
   1. Клиентская часть
      ```bash
      cd ./app
